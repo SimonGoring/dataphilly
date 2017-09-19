@@ -43,6 +43,12 @@ Open science & data sharing is a moral imperative within the sciences*
 
 <img src="images/connects.svg">
 
+## Flyover Country! {data-background-color=#ffC038}
+
+<a href="https://www.youtube.com/watch?v=Bg2IoPzanRU">YouTube Video</a>
+
+<a href="http://fcgi.github.io/FC1/www/index.html#/app/map">Live Demonstration</a>
+
 ## Technical Challenges {data-background-color=#9fDBD1}
 
 <figure><img src=images/michner_entropy.svg width=70%>
@@ -174,6 +180,8 @@ Preserve primary data, support multiple annotation systems.
 <img src=images/annotation_system.svg>
 
 ## NSF Awards
+
+<iframe src="http://www.goring.org/resources/neo4j_engagement.html" style="width:800px;height:500px;"></iframe>
 
 # Conclusion
 
