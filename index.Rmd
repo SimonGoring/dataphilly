@@ -173,11 +173,11 @@ Preserve primary data, support multiple annotation systems.
 
 # Graph Solutions
 
-## Annotation Engines
+## Annotation Engines  {data-background-color=#9fDBD1}
 
-<img src=images/annotation_system.svg>
+<img src=images/annotation_system.svg height=400px>
 
-## NSF Awards
+## NSF Awards  {data-background-color=#9fDBD1}
 
 <iframe src="http://www.goring.org/resources/neo4j_engagement.html" style="width:800px;height:500px;"></iframe>
 
