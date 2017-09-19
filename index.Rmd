@@ -1,0 +1,180 @@
+---
+title: "From technical challenges to interdisciplinary success"
+author: "Simon Goring"
+date: "September 18, 2017"
+output:
+  revealjs::revealjs_presentation:
+    css: css/sjg_custom.css
+    highlight: pygments
+    center: true
+    self_contained: false
+    reveal_options:
+      slideNumber: true
+      previewLinks: true
+---
+
+# Reproducibility and Open Science {data-background-image="images/12210424505_f13e8c0eda_o.png"} 
+
+Open science & data sharing is a moral imperative within the sciences*
+
+## Technical Challenges {data-background-color=#9fDBD1}
+
+<figure><img src=images/shrugs.svg height=70%>
+  <figcaption>Where do I put my data / Where do I get my data?</figacption>
+</figure>
+
+## {data-background="images/Volcanic_Ash_Dunes.jpg"}
+
+##  {data-background-color=#9fDBD1}
+
+<img src="images/paths_of_tephra_nolabel.svg">
+
+##  {data-background-color=#9fDBD1}
+
+<img src="images/paths_of_tephra.svg">
+
+## Scientific Challenges {data-background-color=#ffC038}
+
+<h3>Where do I put/get my data?<h3>
+
+## {data-background-color=#ffC038}
+
+<h3>Linking data resources becomes imperative.</h4>
+
+<img src="images/connects.svg">
+
+## Technical Challenges {data-background-color=#9fDBD1}
+
+<figure><img src=images/michner_entropy.svg width=70%>
+  <figcaption>How do we sustain data content?</figacption>
+</figure>
+
+## Technical Challenges {data-background-color=#9fDBD1}
+
+<figure><img src=images/noun_21051.svg width=70%>
+  <figcaption>Science is cultural.</figacption>
+</figure>
+
+## Technical Challenges {data-background-color=#ffC038}
+
+## {data-background-color=#ffC038}
+
+<figure><img src=images/connects_people.svg width=70%>
+
+# Neotoma and Community Resources
+
+## Community Curated Data Resources {data-background-color=#9fDBD1}
+
+Neotoma, Paleobiology Database, Paleofire Database, Geochron, Geochem, ePannda, iDigBio, GBIF . . .
+
+## Neotoma and Community Resources {data-background-color=#9fDBD1}
+
+From systems of record -> systems of engagement.
+
+- Geoffrey Moore
+
+## Neotoma as a Platform {data-background-color=#9fDBD1}
+
+<img src="images/neotoma_webpage.png" height=80%></img>
+
+## Neotoma Paleoecological Database {data-background-color=#9fDBD1}
+
+<img src="images/logo_earthcube_full_horizontal.png" height = 100px style="float:center; padding: 30px 0px 0px 0px;">
+<img src="images/wds_logo.png" height = 100px style="float:center; padding: 30px 0px 0px 0px;">
+ 					<br>
+<img src="images/ESIP-logo-new_edited3.png" height = 100px style="float:center; padding: 30px 0px 0px 0px;">
+<img src="images/DataONE.jpg" height = 100 style="float:center; padding: 30px 0px 0px 0px;"><br>
+
+## Technical Challenges  {data-background-color=#9fDBD1}
+
+<figure><img src=images/michner_entropy.svg width=70% style="background:#121259;padding:10px">
+  <figcaption>How do we sustain data content?</figacption>
+</figure>
+
+## DeepDive Infrastructure  {data-background-color=#ffc038}
+
+GeoDeepDive consists of a cyberinfrastructure to manage documents from scientific publishers and to apply Natural Language Processing in an effort to build rich data discovery tools that can leverage dark data in new ways.
+
+## Adding New Data  {data-background-color=#ffc038}
+
+<img src="images/JournalofResearches.jpg" height=80%>
+
+## Mining Data with OCR & NLP  {data-background-color=#ffc038}
+
+<table><tr><td>Article id</td><td>55b2ab84e138231cbdd6cdbd</td></tr>
+<tr><td>Sentence id</td><td>87</td></tr>
+<tr><td>Sentence verbatim</td><td>The specimen is significant in that it clearly shows the entire polyplated periproctal area and the ventral thecal plates adjacent to the brachioles.</td></tr>
+<tr><td>Parts of Speech</td><td>{DT,NN,VBZ,JJ,IN,IN,PRP,RB,VBZ,DT,JJ,JJ,JJ,NN,CC,DT,JJ,JJ,NNS,JJ,TO,DT,NNS,.}	</td></tr>
+<tr><td>Reserved Terms</td><td>{O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O,O}	</td></tr>
+<tr><td>Parts of Speech</td><td>{det,nsubj,cop,"",mark,mark,nsubj,advmod,advcl,det,amod,amod,amod,nsubj,cc,det,amod,amod,conj:and,xcomp,case,det,nmod:to,""}</td></tr>
+<tr><td>Word modified</td><td>{2,4,4,0,9,9,9,9,4,14,14,14,14,20,14,19,19,19,14,9,23,23,20,0}</td></tr></table>
+
+## Building Regex {data-background-color=#ffc038}
+
+We need to match a range of coordinate indicators:
+
+<pre>45°56’ W, 45°56’N, 45◦56 W, 45◦56’N, -45°56’, 123.5° E, -123°23’12“</pre>
+
+```r
+library(stringr)
+
+dms_regex <- "[\\{,]([-]?[1]?[0-9]{1,2}?)(?:(?:,[°◦o],)|(?:[O])|(?:,`{2},))([1]?[0-9]{1,2}(?:.[0-9]*)),[′'`]?[,]?([[0-9]{0,2}]?)[\"]?[,]?([NESWnesw]?),"
+dd_regex <- "[\\{,][-]?[1]?[0-9]{1,2}\\.[0-9]{1,}[,]?[NESWnesw],"
+
+degmin <- stringr::str_match_all(nlp$word, dms_regex)
+decdeg <- stringr::str_match_all(nlp$word, dd_regex)
+```
+
+## Results {data-background-color=#ffc038}
+
+  <iframe src="http://www.goring.org/resources/empty-spaces.html" style="width:800px;height:500px;"></iframe>
+  
+  <a href="http://www.goring.org/resources/empty-spaces.html">http://www.goring.org/resources/empty-spaces.html</a>
+
+## Results {data-background-color=#ffc038}
+
+<div>
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(dplyr)
+library(leaflet)
+
+coordinates <- readr::read_csv('deepdive.csv')[,-1]
+
+leaflet(coordinates) %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircleMarkers(popup = paste0('<b>', coordinates$title, '</b><br>',
+                                  '<a href=http://dx.doi.org/',
+                                  coordinates$title,'>Publication Link</a><br>',
+                                  '<b>Sentence:</b><br>',
+                                  '<small>',gsub(',', ' ', coordinates$sentence),
+                                  '</small>'),
+                   color = ~matched)
+```
+</div>
+
+## Scientific Challenge  {data-background-color=#ffc038}
+
+Preserve primary data, support multiple annotation systems.
+
+* W3C PROV, W3C Annotation
+
+## Data Re-analysis  {data-background-color=#ffc038}
+
+<img src="images/pollen_map.svg"></img>
+
+## Data Re-analysis  {data-background-color=#ffc038}
+
+  <iframe src="http://apps.neotomadb.org/explorer/?datasetid=7" style="width:800px;height:500px;"></iframe>
+
+# Graph Solutions
+
+## Annotation Engines
+
+<img src=images/annotation_system.svg>
+
+## NSF Awards
+
+# Conclusion
+
+# Thank You
