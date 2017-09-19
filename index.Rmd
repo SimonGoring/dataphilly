@@ -51,21 +51,19 @@ Open science & data sharing is a moral imperative within the sciences*
 
 ## Technical Challenges {data-background-color=#9fDBD1}
 
-<figure><img src=images/michner_entropy.svg width=70%>
+<figure><img src=images/michner_entropy.svg  width=70% style="background:#121259;padding:10px">
   <figcaption>How do we sustain data content?</figacption>
 </figure>
 
 ## Technical Challenges {data-background-color=#9fDBD1}
 
-<figure><img src=images/noun_21051.svg width=70%>
+<figure><img src="images/noun_21051.svg" height=400px>
   <figcaption>Science is cultural.</figacption>
 </figure>
 
 ## Technical Challenges {data-background-color=#ffC038}
 
-## {data-background-color=#ffC038}
-
-<figure><img src=images/connects_people.svg width=70%>
+<figure><img src=images/connects_people.svg height=400px>
 
 # Neotoma and Community Resources
 
